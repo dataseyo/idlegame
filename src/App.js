@@ -1,23 +1,45 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState} from "react"
+import Header from "./components/header"
+import Gameui from './components/gameui';
 
 function App() {
+  // store user stats
+  const [stats, setStats] = useState({
+    health: 100,
+    strength: 10,
+    magic: 10,
+    level: 1,
+  })
+
+  // store amoung of times user has clicked
+  const [clicks, setClicks] = useState(0)
+
+  // store how much each click adds to {clicks}
+  const [clickIncrement, setClickIncrement] = useState(1)
+
+  // update clicks data when user presses character
+  const handleClicks = () => {
+    setClicks(prevClicks => prevClicks + clickIncrement)
+  }
+
+  // change clickIncrement amount when user buys an upgrade
+  const handleUpgrade = (props) => {
+    setClickIncrement(prevIncrement => prevIncrement + 5)
+
+    // apply cost
+    // setClicks(prevClicks => prevClicks - props.cost)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header 
+        health={stats.health} 
+        strength={stats.strength} 
+        magic={stats.magic}
+        level={stats.level}
+      />
+      <Gameui clicks={clicks} onClick={handleClicks} passUpgradeData={setClickIncrement}/>
     </div>
   );
 }
