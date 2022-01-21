@@ -34,7 +34,7 @@ const upgradeOptions = {
     upgrade5000: {
         text: "add 10",
         cost: 50,
-        increase: 10,
+        increase: 100,
         // purchased: false,
     }
 }
