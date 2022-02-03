@@ -1,0 +1,16 @@
+{
+    "graph": [
+        {"id" : "0", "name": "start", "north": { "node": "room1", 
+            "distance": 1, "id" : 1}, "west": { "node": "Room 3", "distance" : 1, "id" : 3}},
+        {"id": "1", "name": "Room 1", "south": {"node": "start", 
+            "distance": 1, "id" : 0}, "east": {"node" : "room2", "distance": 1, "id" : 2}},
+        {"id": "2", "name": "Room 2", "west": {"node": "room1",
+            "distance": 1, "id" : "1"}},
+        {"id": "3", "name": "Room 3", "east": { "node": "start", "distance" : 1, "id" : 0}}
+    ],
+    "rooms": {
+        "start": {
+            "description": "You have entered the dungeon."
+        }
+    }
+}

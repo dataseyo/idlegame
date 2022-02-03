@@ -1,92 +1,119 @@
 .header-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    background-color: rgba(0, 0, 0, 0.6);
-    height: 40px; 
-    margin: 12px;
-    border-radius: 6px;
-    align-items: center;
-    opacity: 70%;
-    
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 40px;
+  margin: 12px;
+  border-radius: 6px;
+  align-items: center;
+  opacity: 70%;
 }
 
 .header-title {
-    font-size: 25px;
-    font-weight: bold;
-    margin-right: 10px;
-    margin-left: 10px;
-    color: white;
+  font-size: 25px;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-left: 10px;
+  color: white;
 }
 
 .header-text {
-    font-size: 15px;
-    color: white;
-    padding: 5px;
+  font-size: 15px;
+  color: white;
+  padding: 5px;
 }
 
 .header-icons {
-    display: flex;
-    flex-direction: horizontal;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: horizontal;
+  justify-content: center;
+  align-items: center;
 }
 
 .gameui-container {
-    display: flex;
-    flex-direction: row;
-    min-width: 100px;
-    min-height: 500px;
-    margin: 12px;
+  display: flex;
+  flex-direction: row;
+  min-width: 100px;
+  min-height: 500px;
+  margin: 12px;
+  background-color: floralwhite;
 }
 
 @media screen and (max-width: 768px) {
-    .gameui-container {
-        flex-direction: column;
-    }
+  .gameui-container {
+    flex-direction: column;
+  }
 }
 
 .upgrade-container {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    border: 2px solid rgba(0, 0, 0, 0.6);
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border: 2px solid rgba(0, 0, 0, 0.6);
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .upgrade-button {
-    width: 70px;
+  width: flex;
+  height: flex;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+}
 
+.upgrade-button-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+
+.upgrade-button-text {
+  color: white;
+  margin: 3.5px;
 }
 
 .char-container {
-    display: flex;
-    flex: 2;
-    border: 2px solid rgba(0, 0, 0, 0.6);
-    justify-content: center;
- 
+  display: flex;
+  flex: 2;
+  border: 2px solid rgba(0, 0, 0, 0.6);
+  justify-content: center;
 }
 
 .char-inner-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .character {
-    padding-top: 100px;
+  padding-top: 100px;
 }
 
 .quests-container {
-    display: flex;
-    flex: 1;
-    border: 2px solid rgba(0, 0, 0, 0.6);
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border: 2px solid rgba(0, 0, 0, 0.6);
+  justify-content: flex-start;
+}
+
+.direction-buttons-container {
+  display: grid;
+  grid-template-columns: 50px 50px;
+  justify-content: center;
+}
+
+.direction-buttons {
+  height: flex;
+  width: flex;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border-radius: 8px;
 }
 
 .title {
-    font-family: 'Franklin Gothic Medium';
-    font-size: 20px;
-    font-weight: bold;
-    top: 0;
+  font-family: "Franklin Gothic Medium";
+  font-size: 20px;
+  font-weight: bold;
+  top: 0;
 }

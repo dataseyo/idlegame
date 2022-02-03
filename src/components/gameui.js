@@ -10,7 +10,7 @@ export default function Gameui(props) {
         <div className="gameui-container">
             <Quests />
             <Char onClick={props.onClick} clicks={props.clicks}/>
-            <Upgrages clicks={props.clicks} passUpgradeData={props.passUpgradeData}/>
+            <Upgrages clicks={props.clicks} passUpgradeData={props.passUpgradeData} passClickData={props.passClickData}/>
         </div>
     )
 }

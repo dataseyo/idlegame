@@ -1,67 +1,41 @@
-import React from "react"
+import React, { useState } from "react"
 import "./styles.css"
 
-const upgradeOptions = {
-    upgrade50: {
-        text: "Add 5",
-        cost: 25,
-        increase: 5,
-        show: false,
-        purchased: false,
-    },
-
-    upgrade100: {
-        text: "add 10",
-        cost: 50,
-        increase: 10,
-        // purchased: false,
-    },
-
-    upgrade500: {
-        text: "add 10",
-        cost: 50,
-        increase: 10,
-        // purchased: false,
-    },
-
-    upgrade1000: {
-        text: "add 10",
-        cost: 50,
-        increase: 10,
-        // purchased: false,
-    },
-
-    upgrade5000: {
-        text: "add 10",
-        cost: 50,
-        increase: 100,
-        // purchased: false,
-    }
-}
-
 export default function Upgrages(props) {
+    const [upData, setUpData] = useState({
+        text: "Upgrade",
+        clicksRequired: 10,
+        cost: 5,
+        increase: 10
+    })
 
-     const upgradeButtons = Object.keys(upgradeOptions).map((item) => 
-                 <button>
-                     {upgradeOptions[item].text}
-                 </button>
-         )
-    
+    const handleUpgradePurchase = () => {
+        if (props.clicks < upData.cost) {
+            console.log("Can't afford")
+        } else {
+            props.passClickData(prevClickData => prevClickData - upData.cost)
+            props.passUpgradeData(upData.increase)
+            setUpData(prevUpData => {
+                return {
+                    ...prevUpData,
+                    cost: prevUpData.cost + 100,
+                    increase: prevUpData.increase + 5
+                }
+            })
+        }
+    }
 
     return (
         <div className="upgrade-container">
             <p className="title">Upgrades</p>
 
-            {props.clicks > 10 &&
-                <button 
-                    className="upgrade-button"
-                    onClick={props.passUpgradeData(upgradeOptions.upgrade50.increase)}
-                >
-                    Upgrade 1
-                </button>
-            }
-
-            {upgradeButtons}
+            <button className="upgrade-button" onClick={() => handleUpgradePurchase()}>
+                <div className="upgrade-button-container">
+                    <p className="upgrade-button-text">Cost: {upData.cost}</p>
+                    <p className="upgrade-button-text">Click Power: {upData.increase}</p>
+                </div>
+                
+            </button>
 
 
 

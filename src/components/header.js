@@ -52,7 +52,7 @@ export default function Header(props) {
                     onClose={handlePopoverClose}
                     disableRestoreFocus
                 >
-                    <Typography sx={{ p: 1 }}>Popover</Typography>
+                    <Typography sx={{ p: 1 }}>Health</Typography>
                 </Popover>
             </div>
                 

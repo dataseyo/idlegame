@@ -39,7 +39,7 @@ function App() {
         magic={stats.magic}
         level={stats.level}
       />
-      <Gameui clicks={clicks} onClick={handleClicks} passUpgradeData={setClickIncrement}/>
+      <Gameui clicks={clicks} onClick={handleClicks} passClickData={setClicks} passUpgradeData={setClickIncrement}/>
     </div>
   );
 }
