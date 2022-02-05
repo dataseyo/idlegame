@@ -60,6 +60,7 @@
   height: flex;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 .upgrade-button-container {
@@ -100,12 +101,15 @@
 .direction-buttons-container {
   display: grid;
   grid-template-columns: 50px 50px;
+  row-gap: 5px;
+  column-gap: 15px;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 .direction-buttons {
-  height: flex;
-  width: 50px;
+  height: 35px;
+  width: 60px;
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
   border-radius: 8px;
