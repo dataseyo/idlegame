@@ -8,17 +8,21 @@ export default function Quests() {
     const [currentQuest, setCurrentQuest] = useState({
         graphPosition: data.graph[questIndex],
         location: data.graph[questIndex].name,
+        encounter: data.graph[questIndex].encounter,
+        encounterExists: false,
         southExists: false,
         northExists: false,
         eastExists: false,
         westExists: false,
     })
 
+    const [encounterText, setEncounterText] = useState("")
+
     // check whether east/west/north/south exist in current quest location and update currentQuest state
     // use questIndex dependency to call effect whenever user moves to a new room 
     useEffect(() => {
         if ("west" in currentQuest.graphPosition) {
-            console.log("West Exists")
+            // console.log("West Exists")
             setCurrentQuest(prevQuestData => {
                 return {
                     ...prevQuestData,
@@ -26,7 +30,7 @@ export default function Quests() {
                 }
             })
         } else {
-            console.log("West Doesn't Exist")
+            // console.log("West Doesn't Exist")
             setCurrentQuest(prevQuestData => {
                 return {
                     ...prevQuestData,
@@ -36,7 +40,7 @@ export default function Quests() {
         }
 
         if ("east" in currentQuest.graphPosition) {
-            console.log("East Exists")
+            // console.log("East Exists")
             setCurrentQuest(prevQuestData => {
                 return {
                     ...prevQuestData,
@@ -44,7 +48,7 @@ export default function Quests() {
                 }
             })
         } else {
-            console.log("East Doesn't Exist")
+            // console.log("East Doesn't Exist")
             setCurrentQuest(prevQuestData => {
                 return {
                     ...prevQuestData,
@@ -54,7 +58,7 @@ export default function Quests() {
         }
 
         if ("north" in currentQuest.graphPosition) {
-            console.log("North Exists")
+            // console.log("North Exists")
             setCurrentQuest(prevQuestData => {
                 return {
                     ...prevQuestData,
@@ -62,7 +66,7 @@ export default function Quests() {
                 }
             })
         } else {
-            console.log("North Doesn't Exist")
+            // console.log("North Doesn't Exist")
             setCurrentQuest(prevQuestData => {
                 return {
                     ...prevQuestData,
@@ -72,7 +76,7 @@ export default function Quests() {
         }
 
         if ("south" in currentQuest.graphPosition) {
-            console.log("South Exists")
+            // console.log("South Exists")
             setCurrentQuest(prevQuestData => {
                 return {
                     ...prevQuestData,
@@ -80,11 +84,35 @@ export default function Quests() {
                 }
             })
         } else {
-            console.log("South Doesn't Exist")
+            // console.log("South Doesn't Exist")
             setCurrentQuest(prevQuestData => {
                 return {
                     ...prevQuestData,
                     southExists: false
+                }
+            })
+        }
+    }, [questIndex])
+
+    // check for encounter and show encounter in Quest UI
+    useEffect(() => {
+        if ("encounter" in currentQuest.graphPosition) {
+            // console.log("encounter")
+            console.log(currentQuest.graphPosition.encounter)
+            setCurrentQuest(prevQuestData => {
+                return {
+                    ...prevQuestData,
+                    encounterExists: true
+                }
+            })
+
+            setEncounterText(data.encounters[`${currentQuest.graphPosition.encounter}`].description)
+
+        } else {
+            setCurrentQuest(prevQuestData => {
+                return {
+                    ...prevQuestData,
+                    encounterExists: false
                 }
             })
         }
@@ -115,7 +143,7 @@ export default function Quests() {
         <div className="quests-container">
             <p className="title">Quests</p>
 
-            <p>Quest Area: {currentQuest.location}</p>
+            <p className="quest-title">Location: {currentQuest.location}</p>
             {/* <p>current: {JSON.stringify(data.graph[0])}</p> */}
 
             
@@ -169,6 +197,12 @@ export default function Quests() {
                                 </div>
                             }
             </div>
+
+            {currentQuest.encounterExists && 
+                <div className="encounter-container">
+                    <p className="quest-title">{encounterText}</p>
+                </div>
+            }
             
         </div>
     )

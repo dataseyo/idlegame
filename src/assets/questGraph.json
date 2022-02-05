@@ -1,16 +1,51 @@
 {
     "graph": [
-        {"id" : "0", "name": "start", "north": { "node": "room1", 
-            "distance": 1, "id" : 1}, "west": { "node": "Room 3", "distance" : 1, "id" : 3}},
-        {"id": "1", "name": "Room 1", "south": {"node": "start", 
-            "distance": 1, "id" : 0}, "east": {"node" : "room2", "distance": 1, "id" : 2}},
+        {"id" : "0", "name": "start", "encounter" : "guide", "north": { "node": "Dungeon", 
+            "distance": 1, "id" : 1}, "west": { "node": "Room 3", "distance" : 1, "id" : 3}, 
+            "south": {"node" : "Town", "id" : 5}},
+
+        {"id": "1", "name": "Dungeon", "encounter" : "enterdungeon", "south": {"node": "start", 
+            "distance": 1, "id" : 0}, "east": {"node" : "room2", "distance": 1, "id" : 2}, 
+            "north" : {"node" : "Dungeon Room 3", "id" : "4"}},
+
         {"id": "2", "name": "Room 2", "west": {"node": "room1",
             "distance": 1, "id" : "1"}},
-        {"id": "3", "name": "Room 3", "east": { "node": "start", "distance" : 1, "id" : 0}}
+
+        {"id": "3", "name": "Room 3", "east": { "node": "start", "distance" : 1, "id" : 0}},
+
+        {"id" : "4", "name": "Dungeon Room 3", "encounter" : "slime", 
+            "south": {"node" : "Dungeon", "id" : "1"}},
+
+        {"id" : "5", "name" : "Town", "encounter": "merchant", "north": {"node" : "start", "id" : 0}}
     ],
+
     "rooms": {
         "start": {
             "description": "You have entered the dungeon."
+        }
+    },
+
+    "encounters" : {
+        "guide" : {
+            "description" : "A friendly guide tells you to choose a direction carefully, for strength and great treasures await."
+        },
+
+        "enterdungeon" : {
+            "description" : "You feel a cold breeze coming from deeeper in the dungeon."
+        },
+
+        "slime" : {
+            "description" : "You notice a slime in the corner. ",
+            "options" : [
+                "attack", "run"
+            ]
+        },
+
+        "merchant" : {
+            "description" : "A merchant offers to sell you their wares.",
+            "options" : [
+                "browse", "talk"
+            ]
         }
     }
 }

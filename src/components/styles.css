@@ -105,7 +105,7 @@
 
 .direction-buttons {
   height: flex;
-  width: flex;
+  width: 50px;
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
   border-radius: 8px;
@@ -116,4 +116,13 @@
   font-size: 20px;
   font-weight: bold;
   top: 0;
+}
+
+.encounter-container {
+  margin-top: 10px;
+}
+
+.quest-title {
+  font-family: "fantasy";
+  font-size: large;
 }
