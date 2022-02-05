@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/idlegame/static/css/main.05f141ca.css",
+    "main.js": "/idlegame/static/js/main.fcf4b257.js",
+    "static/js/787.21628b35.chunk.js": "/idlegame/static/js/787.21628b35.chunk.js",
+    "index.html": "/idlegame/index.html",
+    "main.05f141ca.css.map": "/idlegame/static/css/main.05f141ca.css.map",
+    "main.fcf4b257.js.map": "/idlegame/static/js/main.fcf4b257.js.map",
+    "787.21628b35.chunk.js.map": "/idlegame/static/js/787.21628b35.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.05f141ca.css",
+    "static/js/main.fcf4b257.js"
+  ]
+}
